@@ -1,0 +1,187 @@
+{
+  "name": "Case",
+  "type": "object",
+  "properties": {
+    "case_number": {
+      "type": "string",
+      "description": "Unique case reference number (e.g., SAPS-GP-2024-001234)"
+    },
+    "crime_type": {
+      "type": "string",
+      "enum": [
+        "Murder",
+        "Sexual Offences",
+        "Attempted Murder",
+        "Assault GBH",
+        "Common Assault",
+        "Common Robbery",
+        "Robbery with Aggravating Circumstances",
+        "Burglary Residential",
+        "Burglary Non-Residential",
+        "Theft of Motor Vehicle",
+        "Theft from Motor Vehicle",
+        "Stock Theft",
+        "Illegal Possession of Firearms",
+        "Drug-Related Crime",
+        "Driving Under Influence",
+        "Sexual Offences Detected",
+        "Fraud",
+        "Malicious Damage to Property",
+        "Carjacking",
+        "Truck Hijacking",
+        "Cash-in-Transit Robbery",
+        "Bank Robbery",
+        "Other"
+      ],
+      "description": "Category of crime committed"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Reported",
+        "Under Investigation",
+        "Evidence Collection",
+        "Suspect Identified",
+        "Awaiting Arrest",
+        "Arrest Made",
+        "In Court",
+        "Solved",
+        "Closed",
+        "Cold Case"
+      ],
+      "default": "Reported",
+      "description": "Current status of the case"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "Low",
+        "Medium",
+        "High",
+        "Critical"
+      ],
+      "default": "Medium",
+      "description": "Case priority level"
+    },
+    "province": {
+      "type": "string",
+      "enum": [
+        "Gauteng",
+        "Western Cape",
+        "KwaZulu-Natal",
+        "Eastern Cape",
+        "Free State",
+        "Limpopo",
+        "Mpumalanga",
+        "North West",
+        "Northern Cape"
+      ],
+      "description": "Province where crime occurred"
+    },
+    "district": {
+      "type": "string",
+      "description": "Police district/station"
+    },
+    "location_address": {
+      "type": "string",
+      "description": "Street address or location description"
+    },
+    "latitude": {
+      "type": "number",
+      "description": "GPS latitude coordinate"
+    },
+    "longitude": {
+      "type": "number",
+      "description": "GPS longitude coordinate"
+    },
+    "incident_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time of incident"
+    },
+    "reported_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time case was reported"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of the incident"
+    },
+    "victim_info": {
+      "type": "string",
+      "description": "Victim details (anonymized)"
+    },
+    "suspect_info": {
+      "type": "string",
+      "description": "Suspect description if known"
+    },
+    "assigned_officer": {
+      "type": "string",
+      "description": "Email of assigned investigating officer"
+    },
+    "assigned_officer_name": {
+      "type": "string",
+      "description": "Name of assigned officer"
+    },
+    "evidence_files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "URLs to uploaded evidence files"
+    },
+    "case_notes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Case progress notes"
+    },
+    "status_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "changed_by": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "History of status changes"
+    },
+    "court_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Scheduled court date if applicable"
+    },
+    "resolution_notes": {
+      "type": "string",
+      "description": "Notes on case resolution"
+    }
+  },
+  "required": [
+    "case_number",
+    "crime_type",
+    "province",
+    "incident_date",
+    "description"
+  ]
+}

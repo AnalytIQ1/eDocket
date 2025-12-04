@@ -1,0 +1,47 @@
+{
+  "name": "ActivityLog",
+  "type": "object",
+  "properties": {
+    "action_type": {
+      "type": "string",
+      "enum": [
+        "case_created",
+        "status_changed",
+        "case_assigned",
+        "evidence_uploaded",
+        "note_added",
+        "case_closed",
+        "alert_triggered"
+      ],
+      "description": "Type of activity"
+    },
+    "case_id": {
+      "type": "string",
+      "description": "Related case ID"
+    },
+    "case_number": {
+      "type": "string",
+      "description": "Case reference number"
+    },
+    "description": {
+      "type": "string",
+      "description": "Activity description"
+    },
+    "user_name": {
+      "type": "string",
+      "description": "User who performed action"
+    },
+    "province": {
+      "type": "string",
+      "description": "Province related to activity"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional activity data"
+    }
+  },
+  "required": [
+    "action_type",
+    "description"
+  ]
+}

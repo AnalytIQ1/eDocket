@@ -1,0 +1,53 @@
+{
+  "name": "CrimeStatistic",
+  "type": "object",
+  "properties": {
+    "year": {
+      "type": "number",
+      "description": "Year of the statistic (2011-2023)"
+    },
+    "province": {
+      "type": "string",
+      "enum": [
+        "Gauteng",
+        "Western Cape",
+        "KwaZulu-Natal",
+        "Eastern Cape",
+        "Free State",
+        "Limpopo",
+        "Mpumalanga",
+        "North West",
+        "Northern Cape"
+      ],
+      "description": "Province name"
+    },
+    "crime_type": {
+      "type": "string",
+      "description": "Category of crime"
+    },
+    "count": {
+      "type": "number",
+      "description": "Number of incidents"
+    },
+    "station": {
+      "type": "string",
+      "description": "Police station name"
+    },
+    "quarter": {
+      "type": "string",
+      "enum": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "Q4"
+      ],
+      "description": "Quarter of the year"
+    }
+  },
+  "required": [
+    "year",
+    "province",
+    "crime_type",
+    "count"
+  ]
+}
